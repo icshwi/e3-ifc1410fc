@@ -35,23 +35,38 @@ include $(E3_REQUIRE_CONFIG)/DECOUPLE_FLAGS
 # one should look at other modules makefile to add more
 # In most case, one should ignore the following lines:
 
-#ifneq ($(strip $(ASYN_DEP_VERSION)),)
-#asyn_VERSION=$(ASYN_DEP_VERSION)
-#endif
+ifneq ($(strip $(ASYN_DEP_VERSION)),)
+asyn_VERSION=$(ASYN_DEP_VERSION)
+endif
 
-#ifneq ($(strip $(SEQUENCER_DEP_VERSION)),)
-#sequencer_VERSION=$(SEQUENCER_DEP_VERSION)
-#endif
+ifneq ($(strip $(ADCORE_DEP_VERSION)),)
+ADCore_VERSION=$(ADCORE_DEP_VERSION)
+endif
 
+ifneq ($(strip $(ADIFC14_DEP_VERSION)),)
+adifc14_VERSION=$(ADIFC14_DEP_VERSION)
+endif
+
+ifneq ($(strip $(ADSUPPORT_DEP_VERSION)),)
+ADSupport_VERSION=$(ADSUPPORT_DEP_VERSION)
+endif
+
+ifneq ($(strip $(ADMISC_DEP_VERSION)),)
+admisc_VERSION=$(ADMISC_DEP_VERSION)
+endif
+
+ifneq ($(strip $(IFCDAQDRV2_DEP_VERSION)),)
+ifcdaqdrv2_VERSION=$(IFCDAQDRV2_DEP_VERSION)
+endif
 
 
 ## Exclude linux-ppc64e6500
 ##EXCLUDE_ARCHS += linux-ppc64e6500
 ##EXCLUDE_ARCHS += linux-corei7-poky
 
-# APP:=calcApp
-# APPDB:=$(APP)/Db
-# APPSRC:=$(APP)/src
+APP:=ifc1410fcApp
+APPDB:=$(APP)/Db
+APPSRC:=$(APP)/src
 
 
 # USR_INCLUDES += -I$(where_am_I)$(APPSRC)
@@ -66,7 +81,7 @@ include $(E3_REQUIRE_CONFIG)/DECOUPLE_FLAGS
 # TEMPLATES += $(wildcard $(APPDB)/*.db)
 # TEMPLATES += $(wildcard $(APPDB)/*.db)
 # TEMPLATES += $(wildcard $(APPDB)/*.proto)
-# TEMPLATES += $(wildcard $(APPDB)/*.template)
+TEMPLATES += $(wildcard $(APPDB)/*.template)
 
 
 # DBDINC_SRCS += $(APPSRC)/swaitRecord.c
@@ -85,7 +100,7 @@ include $(E3_REQUIRE_CONFIG)/DECOUPLE_FLAGS
 # HEADERS += $(DBDINC_HDRS)
 
 
-# SOURCES += $(APPSRC)/sCalcPostfix.c
+SOURCES += $(APPSRC)/ifc1410fc.cpp
 # SOURCES += $(APPSRC)/sCalcPerform.c
 # SOURCES += $(APPSRC)/aCalcPostfix.c
 # SOURCES += $(APPSRC)/aCalcPerform.c
@@ -103,7 +118,7 @@ include $(E3_REQUIRE_CONFIG)/DECOUPLE_FLAGS
 # # DBDINC_SRCS should be last of the series of SOURCES
 # SOURCES += $(DBDINC_SRCS)
 
-# DBDS += $(APPSRC)/calcSupport_LOCAL.dbd
+DBDS += $(APPSRC)/ifc1410fcSupport.dbd
 # DBDS += $(APPSRC)/calcSupport_withSNCSEQ.dbd
 # DBDS += $(APPSRC)/calcSupport_withSSCAN.dbd
 
