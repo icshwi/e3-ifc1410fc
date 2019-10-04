@@ -26,11 +26,11 @@ ADIFC14_DEP_VERSION:=develop
 #
 
 E3_MODULE_NAME:=$(EPICS_MODULE_NAME)
-E3_MODULE_SRC_PATH:=adsis8300-dev
+E3_MODULE_SRC_PATH:=adsis8300fc-dev
 E3_MODULE_MAKEFILE:=$(EPICS_MODULE_NAME).Makefile
 
 #E3_MODULE_DEV_GITURL:="https://where your git repo which you would like to clone"
-E3_MODULE_DEV_GITURL:="https://gitlab.esss.lu.se/beam-diagnostics/bde/epics/modules/adsis8300.git"
+E3_MODULE_DEV_GITURL:="https://gitlab.esss.lu.se/beam-diagnostics/bde/epics/modules/adsis8300fc.git"
 
 # The definitions shown below can also be placed in an untracked CONFIG_MODULE_DEV.local
 -include $(TOP)/configure/CONFIG_MODULE_DEV.local
