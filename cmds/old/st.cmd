@@ -30,6 +30,14 @@ require ifc1410fc,develop
 # timing (MRF EVR) setup
 iocshLoad("$(adifc14_DIR)evr.setup")
 
+# autosave setup
+#iocshLoad("$(adifc14_DIR)/autosave.setup")
+
+###############################################################################
+
+# afterInit("./post_init.cmd")
+# afterInit("$(adifc14_DIR)evr_standalone.init")
+
 
 iocInit()
 
@@ -46,4 +54,3 @@ iocshLoad("$(adifc14_DIR)/evr_standalone.init")
 #######################################
 #     End of IOC startup commands     #
 #######################################
-
