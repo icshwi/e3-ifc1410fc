@@ -6,7 +6,7 @@
 # ACQ_SAMPLES = maximum number of samples
 
 # controls for analog input channel
-dbLoadRecords("ifc1410fcN.template",   "P=$(ACQ_PREFIX),R=$(N)-,PORT=$(ACQ_PORT),ADDR=$(C),TIMEOUT=1,NAME=Channel $(N)")
+dbLoadRecords("ifc1410fcNcharge.template",   "P=$(ACQ_PREFIX),R=$(N)-,PORT=$(ACQ_PORT),ADDR=$(C),TIMEOUT=1,NAME=Channel $(N)")
 
 #
 # COMMON CHAIN
@@ -174,8 +174,8 @@ dbLoadRecords("NDTimeSeries.template",  "P=$(ACQ_PREFIX),R=$(N)-ST3-TS-,     POR
 # plugin  : NDPluginStdArrays
 # purpose : Provide CA clients with raw waveform.
 #           No additional processing is performed.
-NDTraceConfigure("CH$(C).RAW", 3, 0, "$(ACQ_PORT)", $(C))
-dbLoadRecords("NDTrace.template",  "P=$(ACQ_PREFIX),R=$(N)-TR1-,PORT=CH$(C).RAW,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(ACQ_PORT),NDARRAY_ADDR=$(C),TYPE=Int16,FTVL=SHORT,NELEMENTS=$(ACQ_SAMPLES),TIME_LINK=$(ACQ_PREFIX)TickValueR CP,NAME=CH$(C) Raw,ENABLED=1")
+#NDTraceConfigure("CH$(C).RAW", 3, 0, "$(ACQ_PORT)", $(C))
+#dbLoadRecords("NDTrace.template",  "P=$(ACQ_PREFIX),R=$(N)-TR1-,PORT=CH$(C).RAW,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(ACQ_PORT),NDARRAY_ADDR=$(C),TYPE=Float64,FTVL=SHORT,NELEMENTS=$(ACQ_SAMPLES),TIME_LINK=$(ACQ_PREFIX)TickValueR CP,NAME=CH$(C) Raw,ENABLED=1")
 
 # process : Circular buffer of waveforms for clients
 # chain   : debug

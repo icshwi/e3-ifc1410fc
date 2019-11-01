@@ -19,6 +19,7 @@ epicsEnvSet("MAX_THREADS",   "4")
 ifc1400fcConfigure("$(ACQ_PORT)", $(ACQ_DEVID), 4, $(ACQ_SAMPLES), 0, 0)
 dbLoadRecords("ifc1410fc.template",      "P=$(ACQ_PREFIX),R=,PORT=$(ACQ_PORT),ADDR=0,TIMEOUT=1,MAX_SAMPLES=$(ACQ_SAMPLES)")
 
+iocshLoad("$(adifc14_DIR)/acq_channel.setup", "C=0, N=1")
 iocshLoad("channel.cmd", "C=0, N=1")
 
 # C = analog input channel index for AD 0 .. 9
